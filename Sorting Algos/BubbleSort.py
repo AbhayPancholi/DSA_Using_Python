@@ -30,5 +30,3 @@ if __name__ == "__main__":
     print("Sorted array:")
     for i in range(len(arr)):
         print("%d" % arr[i], end=" ")
-
-# This code is modified by Suraj krushna Yadav
