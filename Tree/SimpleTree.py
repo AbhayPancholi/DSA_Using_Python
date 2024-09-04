@@ -1,7 +1,7 @@
 class TreeNode:
-    def __init__(self, data, children=[]) -> None:
+    def __init__(self, data, children=None) -> None:
         self.data = data
-        self.children = children
+        self.children = children or []
 
     def __str__(self, level=0) -> str:
         ret = " " * level + str(self.data) + "\n"
