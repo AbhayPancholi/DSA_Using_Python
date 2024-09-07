@@ -19,26 +19,26 @@ class BinaryTree:
     #             return "Success"
     #     return "Node not found"
 
-    # def preOrderTraversal(self, index):
-    #     if index > self.lastUsedIndex:
-    #         return
-    #     print(self.customList[index])
-    #     self.preOrderTraversal(index * 2)
-    #     self.preOrderTraversal(index * 2 + 1)
+    def preOrderTraversal(self, index):
+        if index > self.lastUsedIndex:
+            return
+        print(self.customList[index])
+        self.preOrderTraversal(index * 2)
+        self.preOrderTraversal(index * 2 + 1)
 
-    # def inOrderTraversal(self, index):
-    #     if index > self.lastUsedIndex:
-    #         return
-    #     self.inOrderTraversal(index * 2)
-    #     print(self.customList[index])
-    #     self.inOrderTraversal(index * 2 + 1)
+    def inOrderTraversal(self, index):
+        if index > self.lastUsedIndex:
+            return
+        self.inOrderTraversal(index * 2)
+        print(self.customList[index])
+        self.inOrderTraversal(index * 2 + 1)
 
-    # def postOrderTraversal(self, index):
-    #     if index > self.lastUsedIndex:
-    #         return
-    #     self.postOrderTraversal(index * 2)
-    #     self.postOrderTraversal(index * 2 + 1)
-    #     print(self.customList[index])
+    def postOrderTraversal(self, index):
+        if index > self.lastUsedIndex:
+            return
+        self.postOrderTraversal(index * 2)
+        self.postOrderTraversal(index * 2 + 1)
+        print(self.customList[index])
 
 
 newBT = BinaryTree(8)
@@ -49,6 +49,6 @@ print(newBT.insertNode("Tea"))
 print(newBT.insertNode("Coffee"))
 print(newBT.insertNode("Lassi"))
 
-# print(newBT.searchNode("Lassi"))
+print(newBT.searchNode("Lassi"))
 
-newBT.postOrderTraversal(1)
+# newBT.postOrderTraversal(1)
