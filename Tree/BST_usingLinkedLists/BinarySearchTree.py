@@ -110,6 +110,13 @@ def deleteNode(rootNode, nodeValue):
     return rootNode
 
 
+def deleteBST(rootNode):
+    rootNode.data = None
+    rootNode.leftChild = None
+    rootNode.rightChild = None
+    return "The binary tree has been successfully deleted"
+
+
 newBST = BSTNode(None)
 insertNode(newBST, 70)
 insertNode(newBST, 60)
@@ -120,3 +127,5 @@ insertNode(newBST, 65)
 
 deleteNode(newBST, 80)
 postOrderTraversal(newBST)
+
+print(deleteBST(newBST))
