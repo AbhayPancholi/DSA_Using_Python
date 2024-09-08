@@ -79,6 +79,37 @@ def searchNode(rootNode, value):
             searchNode(rootNode.rightChild, value)
 
 
+def minValue(rootNode):
+    current = rootNode
+    while current.leftChild is not None:
+        current = current.leftChild
+    return current
+
+
+def deleteNode(rootNode, nodeValue):
+    if rootNode is None:
+        return rootNode
+    if rootNode.data > nodeValue:
+        rootNode.leftChild = deleteNode(rootNode.leftChild, nodeValue)
+    elif rootNode.data < nodeValue:
+        rootNode.rightChild = deleteNode(rootNode.rightChild, nodeValue)
+    else:
+        if rootNode.leftChild is None:
+            temp = rootNode.rightChild
+            rootNode = None
+            return temp
+
+        if rootNode.rightChild is None:
+            temp = rootNode.leftChild
+            rootNode = None
+            return temp
+
+        temp = minValue(rootNode.rightChild)
+        rootNode.data = temp.data
+        rootNode.rightChild = deleteNode(rootNode.rightChild, temp.data)
+    return rootNode
+
+
 newBST = BSTNode(None)
 insertNode(newBST, 70)
 insertNode(newBST, 60)
@@ -87,5 +118,5 @@ insertNode(newBST, 50)
 insertNode(newBST, 40)
 insertNode(newBST, 65)
 
-# postOrderTraversal(newBST)
-searchNode(newBST, 40)
+deleteNode(newBST, 80)
+postOrderTraversal(newBST)
