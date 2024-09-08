@@ -1,6 +1,3 @@
-import sys, os
-
-sys.path.append(os.path.abspath("../BTs_usingLinkedLists"))
 import QueueLinkedList as queue
 
 
@@ -43,6 +40,30 @@ def levelOrderTraversal(rootNode):
                 customQueue.enqueue(root.value.rightChild)
 
 
+def preOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    print(rootNode.data)
+    preOrderTraversal(rootNode.leftChild)
+    preOrderTraversal(rootNode.rightChild)
+
+
+def inOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    inOrderTraversal(rootNode.leftChild)
+    print(rootNode.data)
+    inOrderTraversal(rootNode.rightChild)
+
+
+def postOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    postOrderTraversal(rootNode.leftChild)
+    postOrderTraversal(rootNode.rightChild)
+    print(rootNode.data)
+
+
 newBST = BSTNode(None)
 insertNode(newBST, 70)
 insertNode(newBST, 60)
@@ -51,4 +72,4 @@ insertNode(newBST, 50)
 insertNode(newBST, 40)
 insertNode(newBST, 65)
 
-levelOrderTraversal(newBST)
+postOrderTraversal(newBST)
