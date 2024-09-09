@@ -20,3 +20,11 @@ def levelOrderTraversal(rootNode):
                 customQueue.enqueue(root.value.leftChild)
             if root.value.rightChild is not None:
                 customQueue.enqueue(root.value.rightChild)
+
+
+def preOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    print(rootNode.data)
+    preOrderTraversal(rootNode.leftChild)
+    preOrderTraversal(rootNode.rightChild)
