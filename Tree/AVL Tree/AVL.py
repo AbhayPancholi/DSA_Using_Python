@@ -47,3 +47,18 @@ def postOrderTraversal(rootNode):
     postOrderTraversal(rootNode.leftChild)
     postOrderTraversal(rootNode.rightChild)
     print(rootNode.data)
+
+
+def searchNode(rootNode, value):
+    if rootNode.data == value:
+        print("Node found")
+    elif rootNode.data > value:
+        if rootNode.leftChild.data == value:
+            print("Node found")
+        else:
+            searchNode(rootNode.leftChild, value)
+    else:
+        if rootNode.rightChild.data == value:
+            print("Node Found")
+        else:
+            searchNode(rootNode.rightChild, value)
