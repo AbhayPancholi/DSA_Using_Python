@@ -1,1 +1,1 @@
-This is the repository for the DSA.
+This is the repository for DSA in python.
