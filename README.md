@@ -4,3 +4,4 @@
 
 - Stack
 - Queue
+- binary tree
