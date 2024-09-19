@@ -2,3 +2,5 @@
 
 ## The topics covered in this repository are as follows:
 
+- Stack
+- Queue
