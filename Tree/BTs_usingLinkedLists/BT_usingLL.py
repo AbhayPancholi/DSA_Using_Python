@@ -130,3 +130,9 @@ def LevelOrderTraversal(rootNode):
 
         if root.value.rightChild is not None:
             customqueue.enqueue(root.value.rightChild)
+
+
+def deleteBT(rootNode):
+    rootNode.data = None
+    rootNode.leftChild = None
+    rootNode.rightChild = None
