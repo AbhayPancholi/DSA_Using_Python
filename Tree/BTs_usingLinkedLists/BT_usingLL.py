@@ -114,3 +114,19 @@ def PostOrderTraversal(rootNode):
     PostOrderTraversal(rootNode.leftChild)
     PostOrderTraversal(rootNode.rightChild)
     print(rootNode.data)
+
+
+def LevelOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    customqueue = queue.Queue()
+    customqueue.enqueue(rootNode)
+    while not customqueue.isEmpty():
+        root = customqueue.dequeue()
+        print(root.value.data)
+
+        if root.value.leftChild is not None:
+            customqueue.enqueue(root.value.leftChild)
+
+        if root.value.rightChild is not None:
+            customqueue.enqueue(root.value.rightChild)
