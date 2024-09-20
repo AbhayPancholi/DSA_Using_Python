@@ -106,3 +106,11 @@ def preOrderTraversal(root_node):
     print(root_node.data)
     preOrderTraversal(root_node.leftChild)
     preOrderTraversal(root_node.rightChild)
+
+
+def PostOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    PostOrderTraversal(rootNode.leftChild)
+    PostOrderTraversal(rootNode.rightChild)
+    print(rootNode.data)
