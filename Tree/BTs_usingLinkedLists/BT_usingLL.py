@@ -90,3 +90,11 @@ def deleteNode(rootNode, node):
             if root.value.rightChild is not None:
                 customQueue.enqueue(root.value.rightChild)
         return "Failed to delete the node"
+
+
+def inOrderTraversal(rootNode):
+    if not rootNode:
+        return
+    inOrderTraversal(rootNode.leftChild)
+    print(rootNode.data)
+    inOrderTraversal(rootNode.rightChild)
