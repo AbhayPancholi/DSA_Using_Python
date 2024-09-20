@@ -98,3 +98,11 @@ def inOrderTraversal(rootNode):
     inOrderTraversal(rootNode.leftChild)
     print(rootNode.data)
     inOrderTraversal(rootNode.rightChild)
+
+
+def preOrderTraversal(root_node):
+    if not root_node:
+        return
+    print(root_node.data)
+    preOrderTraversal(root_node.leftChild)
+    preOrderTraversal(root_node.rightChild)
