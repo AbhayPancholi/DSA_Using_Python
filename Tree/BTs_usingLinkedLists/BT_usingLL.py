@@ -136,3 +136,22 @@ def deleteBT(rootNode):
     rootNode.data = None
     rootNode.leftChild = None
     rootNode.rightChild = None
+
+
+root_node = TreeNode("Drinks")
+leftChild = TreeNode("Hot")
+rightChild = TreeNode("Cold")
+root_node.leftChild = leftChild
+root_node.rightChild = rightChild
+
+leftChild_l = TreeNode("Tea")
+leftChild_r = TreeNode("Milk")
+leftChild.leftChild = leftChild_l
+leftChild.rightChild = leftChild_r
+
+rightChild_l = TreeNode("Lassi")
+rightChild_r = TreeNode("sharbat")
+rightChild.leftChild = rightChild_l
+rightChild.rightChild = rightChild_r
+
+inOrderTraversal(root_node)
