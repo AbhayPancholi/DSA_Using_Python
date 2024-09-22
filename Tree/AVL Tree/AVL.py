@@ -62,3 +62,35 @@ def searchNode(rootNode, value):
             print("Node Found")
         else:
             searchNode(rootNode.rightChild, value)
+
+
+def getHeight(rootNode):
+    if not rootNode:
+        return 0
+    return rootNode.height
+
+
+def rightRotate(disbalancedNode):
+    newRoot = disbalancedNode.leftChild
+    disbalancedNode.leftChild = disbalancedNode.leftChild.rightChild
+    newRoot.rightChild = disbalancedNode
+    disbalancedNode.height = 1 + max(
+        getHeight(disbalancedNode.leftChild), getHeight(disbalancedNode.rightChild)
+    )
+    newRoot.height = 1 + max(
+        getHeight(newRoot.leftChild), getHeight(newRoot.rightChild)
+    )
+    return newRoot
+
+
+def leftRotate(disbalancedNode):
+    newRoot = disbalancedNode.rightChild
+    disbalancedNode.rightChild = disbalancedNode.rightChild.leftChild
+    newRoot.leftChild = disbalancedNode
+    disbalancedNode.height = 1 + max(
+        getHeight(disbalancedNode.leftChild), getHeight(disbalancedNode.rightChild)
+    )
+    newRoot.height = 1 + max(
+        getHeight(newRoot.leftChild), getHeight(newRoot.rightChild)
+    )
+    return newRoot
