@@ -94,3 +94,45 @@ def leftRotate(disbalancedNode):
         getHeight(newRoot.leftChild), getHeight(newRoot.rightChild)
     )
     return newRoot
+
+
+def getBalance(rootNode):
+    if not rootNode:
+        return 0
+    return getHeight(rootNode.leftChild) - getHeight(rootNode.rightChild)
+
+
+def insertNode(rootNode, nodeValue):
+    if not rootNode:
+        return AVLNode(nodeValue)
+    elif nodeValue < rootNode.data:
+        rootNode.leftChild = insertNode(rootNode.leftChild, nodeValue)
+    else:
+        rootNode.rightChild = insertNode(rootNode.rightChild, nodeValue)
+
+    rootNode.height = 1 + max(
+        getHeight(rootNode.leftChild), getHeight(rootNode.rightChild)
+    )
+    balance = getBalance(rootNode)
+    # left left condition
+    if balance > 1 and nodeValue < rootNode.leftChild.data:
+        return rightRotate(rootNode)
+    # Left right condition
+    if balance > 1 and nodeValue > rootNode.leftChild.data:
+        rootNode.leftChild = leftRotate(rootNode.leftChild)
+        return rightRotate(rootNode)
+    # right right condition
+    if balance < -1 and nodeValue > rootNode.rightChild.data:
+        return leftRotate(rootNode)
+    # right left condition
+    if balance < -1 and nodeValue < rootNode.rightChild.data:
+        rootNode.rightChild = rightRotate(rootNode.rightChild)
+        return leftRotate(rootNode)
+    return rootNode
+
+
+newAVL = AVLNode(5)
+newAVL = insertNode(newAVL, 10)
+newAVL = insertNode(newAVL, 15)
+newAVL = insertNode(newAVL, 20)
+levelOrderTraversal(newAVL)
