@@ -174,7 +174,7 @@ def deleteAVL(rootNode):
     rootNode.data = None
     rootNode.rightChild = None
     rootNode.leftChild = None
-    return "deleted"
+    return "The AVL has been successfully deleted"
 
 
 newAVL = AVLNode(5)
