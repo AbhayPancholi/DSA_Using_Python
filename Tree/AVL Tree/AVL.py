@@ -170,6 +170,13 @@ def deleteNode(rootNode, nodeValue):
     return rootNode
 
 
+def deleteAVL(rootNode):
+    rootNode.data = None
+    rootNode.rightChild = None
+    rootNode.leftChild = None
+    return "deleted"
+
+
 newAVL = AVLNode(5)
 newAVL = insertNode(newAVL, 10)
 newAVL = insertNode(newAVL, 15)
