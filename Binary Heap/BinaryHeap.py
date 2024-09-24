@@ -12,4 +12,12 @@ def peekHeap(rootNode):
         return rootNode.customList[1]
 
 
+def HeapSize(rootNode):
+    if not rootNode:
+        return
+    else:
+        return rootNode.heapSize
+
+
 newBinaryHeap = Heap(5)
+print(HeapSize(newBinaryHeap))
