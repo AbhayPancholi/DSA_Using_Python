@@ -65,4 +65,9 @@ def insertNode(rootNode, nodeValue, heapType):
 
 
 newBinaryHeap = Heap(5)
+insertNode(newBinaryHeap, 4, "Max")
+insertNode(newBinaryHeap, 5, "Max")
+insertNode(newBinaryHeap, 2, "Max")
+insertNode(newBinaryHeap, 1, "Max")
 print(HeapSize(newBinaryHeap))
+preOrderTraversal(newBinaryHeap, 1)
