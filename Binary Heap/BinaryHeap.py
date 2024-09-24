@@ -35,6 +35,22 @@ def preOrderTraversal(rootNode, index):
     preOrderTraversal(rootNode, index * 2 + 1)
 
 
+def inOrderTraversal(rootNode, index):
+    if index == 0 or index > rootNode.heapSize:
+        return
+    preOrderTraversal(rootNode, index * 2)
+    print(rootNode.customList[index])
+    preOrderTraversal(rootNode, index * 2 + 1)
+
+
+def postOrderTraversal(rootNode, index):
+    if index == 0 or index > rootNode.heapSize:
+        return
+    preOrderTraversal(rootNode, index * 2)
+    preOrderTraversal(rootNode, index * 2 + 1)
+    print(rootNode.customList[index])
+
+
 def heapifyTreeInsert(rootNode, index, heapType):
     parentIndex = int(index / 2)
     if index <= 1:
