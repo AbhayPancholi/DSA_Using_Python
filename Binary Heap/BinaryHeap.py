@@ -35,5 +35,25 @@ def preOrderTraversal(rootNode, index):
     preOrderTraversal(rootNode, index * 2 + 1)
 
 
+def heapifyTreeInsert(rootNode, index, heapType):
+    parentIndex = int(index / 2)
+    if index <= 1:
+        return
+    if heapType == "Min":
+        if rootNode.customList[index] < rootNode.customList[parentIndex]:
+            rootNode.customList[index], rootNode.customList[parentIndex] = (
+                rootNode.customList[parentIndex],
+                rootNode.customList[index],
+            )
+            heapifyTreeInsert(rootNode, parentIndex, heapType)
+    if heapType == "Max":
+        if rootNode.customList[index] > rootNode.customList[parentIndex]:
+            rootNode.customList[index], rootNode.customList[parentIndex] = (
+                rootNode.customList[parentIndex],
+                rootNode.customList[index],
+            )
+            heapifyTreeInsert(rootNode, parentIndex, heapType)
+
+
 newBinaryHeap = Heap(5)
 print(HeapSize(newBinaryHeap))
