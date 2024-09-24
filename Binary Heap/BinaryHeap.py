@@ -27,5 +27,13 @@ def levelOrderTraversal(rootNode):
             print(rootNode.customList[i])
 
 
+def preOrderTraversal(rootNode, index):
+    if index == 0 or index > rootNode.heapSize:
+        return
+    print(rootNode.customList[index])
+    preOrderTraversal(rootNode, index * 2)
+    preOrderTraversal(rootNode, index * 2 + 1)
+
+
 newBinaryHeap = Heap(5)
 print(HeapSize(newBinaryHeap))
