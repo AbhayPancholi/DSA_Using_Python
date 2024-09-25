@@ -1,6 +1,6 @@
 class TrieNode:
     def __init__(self) -> None:
-        self.childern = {}
+        self.children = {}
         self.endOfString = False
 
 
@@ -12,10 +12,10 @@ class Trie:
         current = self.root
         for i in word:
             ch = i
-            node = current.childern.get(ch)
+            node = current.children.get(ch)
             if node == None:
                 node = TrieNode()
-                current.childern.update({ch: node})
+                current.children.update({ch: node})
             current = node
         current.endOfString = True
         print("successfully inserted")
@@ -23,7 +23,7 @@ class Trie:
     def searchString(self, word):
         current = self.root
         for i in word:
-            node = current.childern.get(i)
+            node = current.children.get(i)
             if node == None:
                 return False
             current = node
@@ -32,7 +32,37 @@ class Trie:
         return False
 
 
+def deleteString(root, word, index):
+    ch = word[index]
+    currentNode = root.children.get(ch)
+    canThisNodeBeDeleted = False
+
+    if len(currentNode.children) > 1:
+        deleteString(root, word, index + 1)
+        return False
+
+    if index == len(word) - 1:
+        if len(currentNode.children) >= 1:
+            currentNode.endOfString = False
+            return False
+        else:
+            root.children.pop(ch)
+            return True
+
+    if currentNode.endOfString == True:
+        deleteString(currentNode, word, index + 1)
+        return False
+    canThisNodeBeDeleted = deleteString(currentNode, word, index + 1)
+
+    if canThisNodeBeDeleted == True:
+        root.children.pop(ch)
+        return True
+    else:
+        return False
+
+
 newTrie = Trie()
 newTrie.insertString("APP")
 newTrie.insertString("APPL")
-print(newTrie.searchString("AP"))
+deleteString(newTrie.root, "APP", 0)
+print(newTrie.searchString("APP"))
