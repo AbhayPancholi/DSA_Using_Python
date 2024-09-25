@@ -20,7 +20,19 @@ class Trie:
         current.endOfString = True
         print("successfully inserted")
 
+    def searchString(self, word):
+        current = self.root
+        for i in word:
+            node = current.childern.get(i)
+            if node == None:
+                return False
+            current = node
+        if current.endOfString == True:
+            return True
+        return False
+
 
 newTrie = Trie()
 newTrie.insertString("APP")
 newTrie.insertString("APPL")
+print(newTrie.searchString("AP"))
