@@ -43,9 +43,20 @@ class Graph:
             return True
         return False
 
+    def removeEdge(self, vertex1, vertex2):
+        if vertex1 and vertex2 in self.adjacency_list.keys():
+            self.adjacency_list[vertex1].remove(vertex2)
+            self.adjacency_list[vertex2].remove(vertex1)
+            return True
+        return False
+
 
 custGraph = Graph()
 custGraph.addVertex("A")
 custGraph.addVertex("B")
+custGraph.addVertex("C")
 custGraph.addEdge("A", "B")
+custGraph.addEdge("A", "C")
+custGraph.addEdge("B", "C")
+custGraph.removeEdge("A", "C")
 custGraph.printGraph()
