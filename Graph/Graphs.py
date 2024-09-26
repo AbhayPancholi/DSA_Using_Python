@@ -55,13 +55,24 @@ class Graph:
             return True
         return False
 
+    def removeVertex(self, vertex):
+        if vertex in self.adjacency_list.keys():
+            for other_vertex in self.adjacency_list[vertex]:
+                self.adjacency_list[other_vertex].remove(vertex)
+            del self.adjacency_list[vertex]
+            return True
+        return False
+
 
 custGraph = Graph()
 custGraph.addVertex("A")
 custGraph.addVertex("B")
 custGraph.addVertex("C")
+custGraph.addVertex("D")
 custGraph.addEdge("A", "B")
 custGraph.addEdge("A", "C")
 custGraph.addEdge("B", "C")
-custGraph.removeEdge("A", "C")
+custGraph.addEdge("A", "D")
+custGraph.addEdge("C", "D")
+custGraph.removeVertex("A")
 custGraph.printGraph()
