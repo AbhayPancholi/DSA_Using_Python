@@ -36,7 +36,16 @@ class Graph:
         for vertex in self.adjacency_list.keys():
             print(vertex, ":", self.adjacency_list[vertex])
 
+    def addEdge(self, vertex1, vertex2):
+        if vertex1 and vertex2 in self.adjacency_list.keys():
+            self.adjacency_list[vertex1].append(vertex2)
+            self.adjacency_list[vertex2].append(vertex1)
+            return True
+        return False
+
 
 custGraph = Graph()
 custGraph.addVertex("A")
+custGraph.addVertex("B")
+custGraph.addEdge("A", "B")
 custGraph.printGraph()
