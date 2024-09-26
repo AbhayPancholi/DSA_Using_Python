@@ -45,8 +45,11 @@ class Graph:
 
     def removeEdge(self, vertex1, vertex2):
         if vertex1 and vertex2 in self.adjacency_list.keys():
-            self.adjacency_list[vertex1].remove(vertex2)
-            self.adjacency_list[vertex2].remove(vertex1)
+            try:
+                self.adjacency_list[vertex1].remove(vertex2)
+                self.adjacency_list[vertex2].remove(vertex1)
+            except ValueError:
+                pass
             return True
         return False
 
