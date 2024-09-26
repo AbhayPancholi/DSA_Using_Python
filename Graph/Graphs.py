@@ -44,6 +44,8 @@ class Graph:
         return False
 
     def removeEdge(self, vertex1, vertex2):
+        """The try-except block is added so that if someone tries to remove a vertex without any edges
+        the error is not raised."""
         if vertex1 and vertex2 in self.adjacency_list.keys():
             try:
                 self.adjacency_list[vertex1].remove(vertex2)
