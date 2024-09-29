@@ -21,6 +21,8 @@
 # newGraph.addEdge("e", "c")
 # print(newGraph.gdict)
 
+from collections import deque
+
 
 class Graph:
     def __init__(self) -> None:
@@ -63,16 +65,30 @@ class Graph:
             return True
         return False
 
+    def bfs(self, vertex):
+        visited = set()
+        visited.add(vertex)
+        queue = deque([vertex])
+        while queue:
+            current_vertex = queue.popleft()
+            print(current_vertex)
+            for adjacent_vertex in self.adjacency_list[current_vertex]:
+                if adjacent_vertex not in visited:
+                    visited.add(adjacent_vertex)
+                    queue.append(adjacent_vertex)
+
 
 custGraph = Graph()
 custGraph.addVertex("A")
 custGraph.addVertex("B")
 custGraph.addVertex("C")
 custGraph.addVertex("D")
+custGraph.addVertex("E")
 custGraph.addEdge("A", "B")
 custGraph.addEdge("A", "C")
-custGraph.addEdge("B", "C")
-custGraph.addEdge("A", "D")
+custGraph.addEdge("B", "E")
+custGraph.addEdge("D", "E")
 custGraph.addEdge("C", "D")
-custGraph.removeVertex("A")
-custGraph.printGraph()
+# custGraph.removeVertex("A")
+# custGraph.printGraph()
+custGraph.bfs("A")
