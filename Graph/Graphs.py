@@ -77,6 +77,18 @@ class Graph:
                     visited.add(adjacent_vertex)
                     queue.append(adjacent_vertex)
 
+    def dfs(self, vertex):
+        visited = set()
+        stack = [vertex]
+        while stack:
+            current_vertex = stack.pop()
+            if current_vertex not in visited:
+                print(current_vertex)
+                visited.add(current_vertex)
+            for adjacent_vertex in self.adjacency_list[current_vertex]:
+                if adjacent_vertex not in visited:
+                    stack.append(adjacent_vertex)
+
 
 custGraph = Graph()
 custGraph.addVertex("A")
@@ -91,4 +103,4 @@ custGraph.addEdge("D", "E")
 custGraph.addEdge("C", "D")
 # custGraph.removeVertex("A")
 # custGraph.printGraph()
-custGraph.bfs("A")
+custGraph.dfs("A")
