@@ -18,3 +18,8 @@ class Node:
 
     def __lt__(self, other_node):
         return self.min_distance < other_node.min_distance
+
+
+a = Node("A")
+b = Node("B")
+print(a > b)
