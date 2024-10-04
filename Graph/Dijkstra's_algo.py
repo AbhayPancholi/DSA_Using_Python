@@ -1,5 +1,8 @@
+import heapq
+
+
 # class for edges
-class Egde:
+class Edge:
     def __init__(self, weight, start_vertex, end_vertex) -> None:
         self.weight = weight
         self.start_vertex = start_vertex
@@ -19,7 +22,33 @@ class Node:
     def __lt__(self, other_node):
         return self.min_distance < other_node.min_distance
 
+    def add_edge(self, weight, destination_vertex):
+        edge = Edge(weight, self, destination_vertex)
+        self.neighbours.append(edge)
 
-a = Node("A")
-b = Node("B")
-print(a > b)
+
+class Dijkstra:
+    def __init__(self) -> None:
+        self.heap = []
+
+    def calculate(self, start_vertex):
+        start_vertex.min_distance = 0
+        heapq.heappush(self.heap, start_vertex)
+
+        while self.heap:
+            # pop element with lowest distance
+            actual_vertex = heapq.heappop(self.heap)
+            if actual_vertex.visited:
+                continue
+            # consider the neighbours
+            for edge in actual_vertex.neighbours:
+                start = edge.start_vertex
+                target = edge.target_vertex
+
+                new_distance = start.min_distance + edge.weight
+                if new_distance < target.min_distance:
+                    target.min_distance = new_distance
+                    target.predecessor = start
+                    # update the heap
+                    heapq.heappush(self.heap, target)
+            actual_vertex.visited = True
