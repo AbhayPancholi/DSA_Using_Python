@@ -70,3 +70,27 @@ nodeE = Node("E")
 nodeF = Node("F")
 nodeG = Node("G")
 nodeH = Node("H")
+
+# Step-2 Add Edges
+nodeA.add_edge(6, nodeB)
+nodeA.add_edge(10, nodeC)
+nodeA.add_edge(9, nodeD)
+
+nodeB.add_edge(5, nodeD)
+nodeB.add_edge(13, nodeF)
+nodeB.add_edge(16, nodeE)
+
+nodeC.add_edge(6, nodeD)
+nodeC.add_edge(5, nodeH)
+nodeC.add_edge(21, nodeG)
+
+nodeD.add_edge(8, nodeF)
+nodeD.add_edge(7, nodeH)
+
+nodeE.add_edge(10, nodeG)
+
+nodeF.add_edge(4, nodeE)
+nodeF.add_edge(12, nodeG)
+
+nodeH.add_edge(2, nodeF)
+nodeH.add_edge(14, nodeG)
