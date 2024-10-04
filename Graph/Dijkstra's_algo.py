@@ -43,7 +43,7 @@ class Dijkstra:
             # consider the neighbours
             for edge in actual_vertex.neighbours:
                 start = edge.start_vertex
-                target = edge.target_vertex
+                target = edge.end_vertex
 
                 new_distance = start.min_distance + edge.weight
                 if new_distance < target.min_distance:
@@ -53,7 +53,7 @@ class Dijkstra:
                     heapq.heappush(self.heap, target)
             actual_vertex.visited = True
 
-    def calculate(self, vertex):
+    def get_shortest_path(self, vertex):
         print(f"The shortest path to the vertex is: {vertex.min_distance}")
         actual_vertex = vertex
         while actual_vertex is not None:
@@ -94,3 +94,7 @@ nodeF.add_edge(12, nodeG)
 
 nodeH.add_edge(2, nodeF)
 nodeH.add_edge(14, nodeG)
+
+algo = Dijkstra()
+algo.calculate(nodeA)
+algo.get_shortest_path(nodeG)
