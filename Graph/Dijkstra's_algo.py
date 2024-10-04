@@ -52,3 +52,10 @@ class Dijkstra:
                     # update the heap
                     heapq.heappush(self.heap, target)
             actual_vertex.visited = True
+
+    def calculate(self, vertex):
+        print(f"The shortest path to the vertex is: {vertex.min_distance}")
+        actual_vertex = vertex
+        while actual_vertex is not None:
+            print(actual_vertex.name, end=" ")
+            actual_vertex = actual_vertex.predecessor
