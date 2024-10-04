@@ -59,3 +59,14 @@ class Dijkstra:
         while actual_vertex is not None:
             print(actual_vertex.name, end=" ")
             actual_vertex = actual_vertex.predecessor
+
+
+# Step-1 Create nodes
+nodeA = Node("A")
+nodeB = Node("B")
+nodeC = Node("C")
+nodeD = Node("D")
+nodeE = Node("E")
+nodeF = Node("F")
+nodeG = Node("G")
+nodeH = Node("H")
