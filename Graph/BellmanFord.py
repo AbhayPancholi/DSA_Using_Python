@@ -7,7 +7,7 @@ class Graph:
     def add_edge(self, s, d, w):
         self.graph.append([s, d, w])
 
-    def addNode(self, value):
+    def add_node(self, value):
         self.nodes.append(value)
 
     def print_solution(self, dist):
