@@ -47,4 +47,5 @@ g.add_edge("D", "C", 2)
 g.add_edge("D", "B", 1)
 g.add_edge("E", "D", 2)
 g.add_edge("E", "B", 4)
+
 g.bellman_ford("E")
