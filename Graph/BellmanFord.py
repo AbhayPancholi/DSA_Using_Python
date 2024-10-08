@@ -13,7 +13,7 @@ class Graph:
     def print_solution(self, dist):
         print("Vertex distance form source")
         for key, val in dist.items():
-            print("  " + key, " :  " + val)
+            print("  ", key, " :  ", val)
 
     def bellman_ford(self, src):
         dist = {i: float("inf") for i in self.nodes}
@@ -47,3 +47,4 @@ g.add_edge("D", "C", 2)
 g.add_edge("D", "B", 1)
 g.add_edge("E", "D", 2)
 g.add_edge("E", "B", 4)
+g.bellman_ford("E")
