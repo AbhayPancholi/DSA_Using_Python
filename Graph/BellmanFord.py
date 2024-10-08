@@ -21,11 +21,11 @@ class Graph:
 
         for i in range(self.V - 1):
             for s, d, w in self.graph:
-                if dist[s] != float("inf") and dist[d] > dist[s] + w:
+                if dist[s] != float("inf") and dist[s] + w < dist[d]:
                     dist[d] = dist[s] + w
 
         for s, d, w in self.graph:
-            if dist[s] != float("inf") and dist[d] > dist[s] + w:
+            if dist[s] != float("inf") and dist[s] + w < dist[d]:
                 print("Graph contains negative cycle")
                 return
 
@@ -48,4 +48,4 @@ g.add_edge("D", "B", 1)
 g.add_edge("E", "D", 2)
 g.add_edge("E", "B", 4)
 
-g.bellman_ford("E")
+g.bellman_ford("B")
