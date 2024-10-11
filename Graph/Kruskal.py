@@ -12,7 +12,7 @@ class Graph:
         self.graph.append([s, d, w])
 
     def add_node(self, value):
-        self.nodes.append(value)
+        self.node.append(value)
 
     def printSolution(self, s, d, w):
         for s, d, w in self.MST:
@@ -20,7 +20,7 @@ class Graph:
 
     def kruskalAlgo(self):
         i, e = 0, 0
-        ds = dst.DisjointSet(self.nodes)
+        ds = dst.DisjointSet(self.node)
         self.graph = sorted(self.graph, key=lambda item: item[2])
         while e < self.V - 1:
             s, d, w = self.graph[i]
