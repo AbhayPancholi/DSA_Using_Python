@@ -10,3 +10,7 @@ class Graph:
 
     def add_node(self, value):
         self.nodes.append(value)
+
+    def printSolution(self, s, d, w):
+        for s, d, w in self.MST:
+            print("%s - %s: %s" % (s, d, w))
