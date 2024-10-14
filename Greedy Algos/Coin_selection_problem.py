@@ -1,4 +1,4 @@
-# Problem Definition: -
+## Problem Definition: -
 """
 In this problem we have been provided with coins of different denominations say: {1, 2, 5, 10, 20, 50, 100, 1000}
 and total amount of money. We have to find the minimun number of coins to make up the given amount.
@@ -14,7 +14,7 @@ Answer: 3 -> 100 + 20 + 2 = 122
 
 """
 
-# Approach to solve the problem: -
+## Approach to solve the problem: -
 """
 Step 1: find the biggest coin that is less than given amount.
 
