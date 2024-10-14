@@ -26,3 +26,24 @@ step 3: if given amount is equal to zero:
             repeat steps.
 
 """
+
+
+def coinChange(amount, coins):
+    coins.sort()
+    index = len(coins) - 1
+    while True:
+        coinValue = coins[index]
+
+        if coinValue <= amount:
+            print(coinValue)
+            amount -= coinValue
+
+        if coinValue > amount:
+            index -= 1
+
+        if amount == 0:
+            break
+
+
+coins = [1, 2, 5, 10, 20, 50, 100]
+coinChange(201, coins)
