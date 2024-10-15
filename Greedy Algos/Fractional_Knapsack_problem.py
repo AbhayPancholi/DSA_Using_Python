@@ -73,3 +73,8 @@ def fractionalKnapsack(items, capacity):
             break
 
     print("Total Value Obtained: " + str(totalValue))
+
+
+item1 = Item(20, 100)
+item2 = Item(30, 120)
+item3 = Item(10, 60)
