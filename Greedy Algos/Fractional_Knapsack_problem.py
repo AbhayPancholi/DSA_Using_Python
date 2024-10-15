@@ -45,3 +45,10 @@ Include Item 2 (weight 20): Remaining capacity = 40 - 20 = 20; Total value = 60 
 Include a fraction of Item 3 (weight 20 out of 30): Fraction = 20/30; Value added = 120 * (20/30) = 80
 
 """
+
+
+class items:
+    def __init__(self, weight, value) -> None:
+        self.weight = weight
+        self.value = value
+        self.ratio = value / weight
