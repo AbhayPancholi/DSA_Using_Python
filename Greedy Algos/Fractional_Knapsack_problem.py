@@ -47,8 +47,29 @@ Include a fraction of Item 3 (weight 20 out of 30): Fraction = 20/30; Value adde
 """
 
 
-class items:
+class Item:
     def __init__(self, weight, value) -> None:
         self.weight = weight
         self.value = value
         self.ratio = value / weight
+
+
+def fractionalKnapsack(items, capacity):
+    items.sort(key=lambda item: item.ratio, reverse=True)
+    usedCapacity = 0
+    totalValue = 0
+
+    for i in items:
+        if usedCapacity + i.weight <= capacity:
+            usedCapacity += i.weight
+            totalValue += i.value
+        else:
+            unusedCapacity = capacity - usedCapacity
+            value = i.ratio * unusedCapacity
+            usedCapacity += unusedCapacity
+            totalValue += value
+
+        if usedCapacity == capacity:
+            break
+
+    print("Total Value Obtained: " + str(totalValue))
